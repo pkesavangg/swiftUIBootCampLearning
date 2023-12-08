@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B8BFCE42-5516-4EC4-BE69-7270487A5C09"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7DD4C415-2667-4632-89E3-459F32BB5A9A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUIThinkingBootcamp/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "ContentView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5B0E976-5F04-4461-B320-DD171BD65EB3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUIThinkingBootcamp/VoiceDictation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "startRecording()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B5B0E976-5F04-4461-B320-DD171BD65EB3 - f3a4d682b0336983"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "1968">
+               </Location>
+               <Location
+                  uuid = "B5B0E976-5F04-4461-B320-DD171BD65EB3 - f3a4d682b0336983"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "1368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07CEB615-6F50-4FA9-A89F-560AF17A6114"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUIThinkingBootcamp/VoiceDictation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "startRecording()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "07CEB615-6F50-4FA9-A89F-560AF17A6114 - f3a4d682b03369c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "1816">
+               </Location>
+               <Location
+                  uuid = "07CEB615-6F50-4FA9-A89F-560AF17A6114 - f3a4d682b03369c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "1468">
+               </Location>
+               <Location
+                  uuid = "07CEB615-6F50-4FA9-A89F-560AF17A6114 - a40b0620dc4bf470"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 @Swift.MainActor () -&gt; () in closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "586708EE-BAA5-485E-BB2C-0DD3759869EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUIThinkingBootcamp/VoiceDictation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "startRecording()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "586708EE-BAA5-485E-BB2C-0DD3759869EE - f3a4d682b03369e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "1844">
+               </Location>
+               <Location
+                  uuid = "586708EE-BAA5-485E-BB2C-0DD3759869EE - a40b0620dc4bf470"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 @Swift.MainActor () -&gt; () in closure #1 (__C.SFSpeechRecognizerAuthorizationStatus) -&gt; () in SwiftUIThinkingBootcamp.VoiceDictation.startRecording() -&gt; ()"
+                  moduleName = "SwiftUIThinkingBootcamp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kesavan/iosDevelopment/SwiftUIThinkingBootcamp/SwiftUIThinkingBootcamp/VoiceDictation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "291"
+                  endingLineNumber = "291"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1784AF5-A7FE-448D-84DC-6D841C1EE600"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUIThinkingBootcamp/VoiceDictation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "startRecording()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A8F5847-7296-4F8E-9ACE-DBF349E26ED8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUIThinkingBootcamp/VoiceDictation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "startRecording()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
