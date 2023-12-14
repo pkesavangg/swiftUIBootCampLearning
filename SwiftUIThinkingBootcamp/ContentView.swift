@@ -9,9 +9,9 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @State var originalImage = UIImage(named: "google-icon")!
     var body: some View {
-        MainView()
-            
+        QRCodeScannerView()
     }
 }
 

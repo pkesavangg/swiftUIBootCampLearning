@@ -18,6 +18,9 @@ struct ListBootcamp: View {
                     }
                     .onDelete(perform: deleteItem)
                     .onMove(perform: moveItem)
+                    .onInsert(of: fruits, perform: { index, items in
+                        print(index, items)
+                    })
                 } header: {
                     Text("Fruits")
                 }
