@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TextBootcamp: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/.lowercased())
+        Text("Hello, World!".lowercased())
+        
             .foregroundColor(.red)
             .font(.largeTitle)
             .font(.system(size: 24, weight: .black))

@@ -99,7 +99,7 @@ struct PDFToTextView: View {
                 Spacer()
                 if resultedImages.count > 0 {
                     // self.recognizeText(image: image)
-                    ImageScrollView(pdfImages: resultedImages, selectedTexts: $selectedTexts)
+                    ImageVerticalScrollView(pdfImages: resultedImages, selectedTexts: $selectedTexts)
                 }
                 //                else {
                 //                        if let selectedFile = selectedFile {
@@ -111,7 +111,9 @@ struct PDFToTextView: View {
                 //                    }
                 
             })
+            
             .navigationTitle("PDF OCR")
+            
         }
     }
     
@@ -161,7 +163,7 @@ struct PDFKitRepresentedView: UIViewRepresentable {
 
 
 
-struct ImageScrollView: View {
+struct ImageVerticalScrollView: View {
     @State public var pdfImages: [UIImage?]
     @State private var currentIndex: Int = 0
     @Binding public var selectedTexts: [String]
@@ -171,8 +173,10 @@ struct ImageScrollView: View {
                 Spacer()
                 ImageCropView(image: $pdfImages[self.currentIndex]) { text in
                     if let value = text {
+                        print(value, "ImageCropView")
                         selectedTexts.append(value)
                     } else {
+                        
                     }
                 }
                 Spacer()
@@ -185,7 +189,7 @@ struct ImageScrollView: View {
                                 self.currentIndex = max(self.currentIndex - 1, 0)
                             }
                         }) {
-                            Text("<- Previous")
+                            Text("Previous")
                         }
                         .disabled(currentIndex == 0)
                         
@@ -196,7 +200,7 @@ struct ImageScrollView: View {
                                 self.currentIndex = min(self.currentIndex + 1, pdfImages.count - 1)
                             }
                         }) {
-                            Text("Next Image ->")
+                            Text("Next")
                         }
                         .disabled(currentIndex == pdfImages.count - 1)
                     }
@@ -207,7 +211,7 @@ struct ImageScrollView: View {
 }
 
 struct ImageCropView: View {
-    @Environment(\.presentationMode) var pm
+  //  @Environment(\.presentationMode) var pm
     @State var imageWidth:CGFloat = 0
     @State var imageHeight:CGFloat = 0
     @Binding var image : UIImage?
@@ -226,108 +230,112 @@ struct ImageCropView: View {
     @State var finalRectSize : CGSize = CGSize(width: 200, height: 100)
     public let completionHandler: (String?) -> Void
     var body: some View {
-        
-        ZStack {
-            Image(uiImage: image ?? UIImage())
-                .resizable()
-                .scaledToFit()
-                .overlay(GeometryReader{geo -> AnyView in
-                    DispatchQueue.main.async{
-                        self.imageWidth = geo.size.width
-                        self.imageHeight = geo.size.height
-                    }
-                    return AnyView(EmptyView())
-                })
-            
-            
-            Button(action: {
-                let cgImage: CGImage = (image?.cgImage!)!
-                let scaler = CGFloat(cgImage.width)/imageWidth
-                if let cImage = cgImage.cropping(to: CGRect(x: getCropStartCord().x * scaler, y: getCropStartCord().y * scaler, width: activeRectSize.width * scaler, height: activeRectSize.height * scaler)){
-                    recognizeText(image: UIImage(cgImage: cImage))
-                }
-                pm.wrappedValue.dismiss()
-            }, label: {
-                Text("Recognize Text")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Capsule().fill(Color.blue))
+        VStack {
+            ZStack {
                 
-            })
-            .offset(y: 200)
-            
-            Rectangle()
-                .stroke(lineWidth: 1)
-                .foregroundColor(.white)
-                .offset(x: rectActiveOffset.width, y: rectActiveOffset.height)
-                .frame(width: activeRectSize.width, height: activeRectSize.height)
-            
-            Rectangle()
-                .stroke(lineWidth: 1)
-                .foregroundColor(.white)
-                .background(Color.green.opacity(0.3))
-                .offset(x: rectActiveOffset.width, y: rectActiveOffset.height)
-                .frame(width: activeRectSize.width, height: activeRectSize.height)
-                .gesture(
-                    DragGesture()
-                        .onChanged{drag in
-                            let workingOffset = CGSize(
-                                width: rectFinalOffset.width + drag.translation.width,
-                                height: rectFinalOffset.height + drag.translation.height
-                            )
-                            self.rectActiveOffset.width = workingOffset.width
-                            self.rectActiveOffset.height = workingOffset.height
-                            
-                            activeOffset.width = rectActiveOffset.width - activeRectSize.width / 2
-                            activeOffset.height = rectActiveOffset.height - activeRectSize.height / 2
+                Image(uiImage: image ?? UIImage())
+                    .resizable()
+                    .scaledToFit()
+                    .overlay(GeometryReader{geo -> AnyView in
+                        DispatchQueue.main.async{
+                            self.imageWidth = geo.size.width
+                            self.imageHeight = geo.size.height
                         }
-                        .onEnded{drag in
-                            self.rectFinalOffset = rectActiveOffset
-                            self.finalOffset = activeOffset
-                        }
-                )
-            
-            Image(systemName: "arrow.up.left.and.arrow.down.right")
-                .font(.system(size: 12))
-                .background(Circle().frame(width: 20, height: 20).foregroundColor(dotColor))
-                .frame(width: dotSize, height: dotSize)
-                .foregroundColor(.black)
-                .offset(x: activeOffset.width, y: activeOffset.height)
-                .gesture(
-                    DragGesture()
-                        .onChanged{drag in
-                            let workingOffset = CGSize(
-                                width: finalOffset.width + drag.translation.width,
-                                height: finalOffset.height + drag.translation.height
-                            )
-                            
-                            let changeInXOffset = finalOffset.width - workingOffset.width
-                            let changeInYOffset = finalOffset.height - workingOffset.height
-                            
-                            if finalRectSize.width + changeInXOffset > 40 && finalRectSize.height + changeInYOffset > 40{
-                                self.activeOffset.width = workingOffset.width
-                                self.activeOffset.height = workingOffset.height
+                        return AnyView(EmptyView())
+                    })
+                
+                
+                Button(action: {
+                    let cgImage: CGImage = (image?.cgImage!)!
+                    let scaler = CGFloat(cgImage.width)/imageWidth
+                    if let cImage = cgImage.cropping(to: CGRect(x: getCropStartCord().x * scaler, y: getCropStartCord().y * scaler, width: activeRectSize.width * scaler, height: activeRectSize.height * scaler)){
+                        recognizeText(image: UIImage(cgImage: cImage))
+                    }
+                   // pm.wrappedValue.dismiss()
+                }, label: {
+                    Text("Recognize Text")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Capsule().fill(Color.blue))
+                    
+                })
+                .offset(y: 200)
+                
+                Rectangle()
+                    .stroke(lineWidth: 1.5)
+                    .foregroundColor(.yellow)
+                    .offset(x: rectActiveOffset.width, y: rectActiveOffset.height)
+                    .frame(width: activeRectSize.width, height: activeRectSize.height)
+                
+                Rectangle()
+                    .stroke(lineWidth: 1)
+                    .foregroundColor(.yellow)
+                    .background(Color.gray.opacity(0.3))
+                    .offset(x: rectActiveOffset.width, y: rectActiveOffset.height)
+                    .frame(width: activeRectSize.width, height: activeRectSize.height)
+                    .gesture(
+                        DragGesture()
+                            .onChanged{drag in
+                                let workingOffset = CGSize(
+                                    width: rectFinalOffset.width + drag.translation.width,
+                                    height: rectFinalOffset.height + drag.translation.height
+                                )
+                                self.rectActiveOffset.width = workingOffset.width
+                                self.rectActiveOffset.height = workingOffset.height
                                 
-                                activeRectSize.width = finalRectSize.width + changeInXOffset
-                                activeRectSize.height = finalRectSize.height + changeInYOffset
-                                
-                                rectActiveOffset.width = rectFinalOffset.width - changeInXOffset / 2
-                                rectActiveOffset.height = rectFinalOffset.height - changeInYOffset / 2
+                                activeOffset.width = rectActiveOffset.width - activeRectSize.width / 2
+                                activeOffset.height = rectActiveOffset.height - activeRectSize.height / 2
                             }
-                            
-                        }
-                        .onEnded{drag in
-                            self.finalOffset = activeOffset
-                            finalRectSize = activeRectSize
-                            rectFinalOffset = rectActiveOffset
-                        }
-                )
+                            .onEnded{drag in
+                                self.rectFinalOffset = rectActiveOffset
+                                self.finalOffset = activeOffset
+                            }
+                    )
+                
+                Image(systemName: "arrow.up.left.and.arrow.down.right")
+                    .font(.system(size: 12))
+                    .background(Circle().frame(width: 20, height: 20).foregroundColor(dotColor))
+                    .frame(width: dotSize, height: dotSize)
+                    .foregroundColor(.black)
+                    .offset(x: activeOffset.width, y: activeOffset.height)
+                    .gesture(
+                        DragGesture()
+                            .onChanged{drag in
+                                let workingOffset = CGSize(
+                                    width: finalOffset.width + drag.translation.width,
+                                    height: finalOffset.height + drag.translation.height
+                                )
+                                
+                                let changeInXOffset = finalOffset.width - workingOffset.width
+                                let changeInYOffset = finalOffset.height - workingOffset.height
+                                
+                                if finalRectSize.width + changeInXOffset > 40 && finalRectSize.height + changeInYOffset > 40{
+                                    self.activeOffset.width = workingOffset.width
+                                    self.activeOffset.height = workingOffset.height
+                                    
+                                    activeRectSize.width = finalRectSize.width + changeInXOffset
+                                    activeRectSize.height = finalRectSize.height + changeInYOffset
+                                    
+                                    rectActiveOffset.width = rectFinalOffset.width - changeInXOffset / 2
+                                    rectActiveOffset.height = rectFinalOffset.height - changeInYOffset / 2
+                                }
+                                
+                            }
+                            .onEnded{drag in
+                                self.finalOffset = activeOffset
+                                finalRectSize = activeRectSize
+                                rectFinalOffset = rectActiveOffset
+                            }
+                    )
+            }
+            .onAppear {
+                activeOffset.width = rectActiveOffset.width - activeRectSize.width / 2
+                activeOffset.height = rectActiveOffset.height - activeRectSize.height / 2
+                finalOffset = activeOffset
+            }
         }
-        .onAppear {
-            activeOffset.width = rectActiveOffset.width - activeRectSize.width / 2
-            activeOffset.height = rectActiveOffset.height - activeRectSize.height / 2
-            finalOffset = activeOffset
-        }
+       // .frame(height: 200)
+        
     }
     
     func recognizeText(image: UIImage) {
@@ -356,5 +364,12 @@ struct ImageCropView: View {
         cropPoint.x = imageWidth / 2 - (activeRectSize.width / 2 - rectActiveOffset.width )
         cropPoint.y = imageHeight / 2 - (activeRectSize.height / 2 - rectActiveOffset.height )
         return cropPoint
+    }
+}
+
+
+#Preview {
+    ImageCropView(image: .constant(UIImage(named: "Image1"))) {_ in
+        
     }
 }

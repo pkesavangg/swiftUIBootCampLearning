@@ -11,10 +11,16 @@ import CoreData
 struct ContentView: View {
     @State var originalImage = UIImage(named: "google-icon")!
     var body: some View {
-        QRCodeScannerView()
+        DetectFacialExpression()
     }
 }
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
+
+
+
+
+
+
