@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct SlideShowBootCampLearning: View {
+struct SlideShowVideoView: View {
     @State private var pageIndex = 0
-//    private let pages: [Page] = Page.samplePages
     private let dotAppearance = UIPageControl.appearance()
     public var homePageImageUrls = ["https://s3.amazonaws.com/gg-mark/gsg/variation/4VuVwHTDaqmeDiz8WoUUVp.jpg",
                                     "https://s3.amazonaws.com/gg-mark/gsg/variation/4VuVwHTDaqmeDiz8WoUUVp.jpg",
@@ -18,18 +17,6 @@ struct SlideShowBootCampLearning: View {
     ]
     var body: some View {
         VStack {
-            Button("Add") {
-                if pageIndex < (homePageImageUrls.count - 1) {
-                    pageIndex += 1
-                }
-                
-            }
-            Button("Minus") {
-                if pageIndex > 0 {
-                    pageIndex -= 1
-                }
-                
-            }
             TabView(selection: $pageIndex) {
                 ForEach(homePageImageUrls.indices) { index in
                     VStack {
@@ -60,19 +47,47 @@ struct SlideShowBootCampLearning: View {
         }
 
     }
-    
-//    func incrementPage() {
-//        pageIndex += 1
-//    }
-//    
-//    func goToZero() {
-//        pageIndex = 0
-//    }
 }
 
 #Preview {
-    SlideShowBootCampLearning()
+    SlideShowVideoView()
 }
+
+import AVKit
+import SwiftUI
+
+struct VideosTabView: View {
+    var player = AVPlayer(url: URL(string: "https://embed-ssl.wistia.com/deliveries/cc8402e8c16cc8f36d3f63bd29eb82f99f4b5f88/accudvh5jy.mp4")!)
+    
+    var body: some View {
+        ZStack  {
+            
+        }
+        VideoPlayer(player: player) {
+            VStack {
+                Text("Watermark")
+                    .foregroundStyle(.black)
+                    .background(.white.opacity(0.7))
+                Spacer()
+            }
+            .frame(width: 400, height: 300)
+        }
+        .frame(height: 300, alignment: .center)
+        .cornerRadius(10)
+        .padding(.horizontal)
+        .onAppear {
+            player.play()
+            self.player.isMuted = true
+        }
+        .onDisappear {
+            player.pause()
+        }
+    }
+}
+
+//#Preview {
+//    VideosTabView()
+//}
 
 import Foundation
 
